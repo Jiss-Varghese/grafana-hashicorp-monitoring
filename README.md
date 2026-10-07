@@ -41,24 +41,24 @@ Final architecture
 
 ```
 
-Project phases
-PHASE 1   Project preparation
-PHASE 2   Monitoring stack
-PHASE 3   Subtask 1 – Research metrics
-PHASE 4   Nomad setup
-PHASE 5   Subtask 2 – Nomad dashboard
-PHASE 6   Subtask 3 – Alerting
-PHASE 7   Consul setup
-PHASE 8   Subtask 4 – Consul dashboard
-PHASE 9   Vault setup
-PHASE 10  Subtask 5 – Vault dashboard
-PHASE 11  Node metrics dashboard
-PHASE 12  Loki + Alloy logs
-PHASE 13  Reusable dashboard variables
-PHASE 14  Dashboard provisioning
-PHASE 15  Testing
-PHASE 16  Documentation
-PHASE 17  Final GitHub project
+Project phases<br>
+PHASE 1   Project preparation<br>
+PHASE 2   Monitoring stack<br>
+PHASE 3   Subtask 1 – Research metrics<br>
+PHASE 4   Nomad setup<br>
+PHASE 5   Subtask 2 – Nomad dashboard<br>
+PHASE 6   Subtask 3 – Alerting<br>
+PHASE 7   Consul setup<br>
+PHASE 8   Subtask 4 – Consul dashboard<br>
+PHASE 9   Vault setup<br>
+PHASE 10  Subtask 5 – Vault dashboard<br>
+PHASE 11  Node metrics dashboard<br>
+PHASE 12  Loki + Alloy logs<br>
+PHASE 13  Reusable dashboard variables<br>
+PHASE 14  Dashboard provisioning<br>
+PHASE 15  Testing<br>
+PHASE 16  Documentation<br>
+
 
 PHASE 1 — Project Setup
 Step 1 — Create project directory
@@ -389,4 +389,3 @@ curl "http://localhost:4646/v1/metrics?format=prometheus" \
   curl "http://localhost:8500/v1/agent/metrics?format=prometheus" \
   > docs/consul-metrics.txt
 
-  
