@@ -60,40 +60,40 @@ PHASE 15  Testing<br>
 PHASE 16  Documentation<br>
 
 
-PHASE 1 — Project Setup
+PHASE 1 — Project Setup<br>
 Step 1 — Create project directory
 
-cd ~/Documents
-mkdir grafana-hashicorp-monitoring
+cd ~/Documents<br>
+mkdir grafana-hashicorp-monitoring<br>
 cd grafana-hashicorp-monitoring
 
 Step 2 — Create project structure
 
-mkdir -p prometheus
-mkdir -p grafana/provisioning/datasources
-mkdir -p grafana/provisioning/dashboards
-mkdir -p grafana/dashboards
-mkdir -p loki
-mkdir -p alloy
-mkdir -p nomad
-mkdir -p consul
-mkdir -p vault
-mkdir -p alertmanager
+mkdir -p prometheus<br>
+mkdir -p grafana/provisioning/datasources<br>
+mkdir -p grafana/provisioning/dashboards<br>
+mkdir -p grafana/dashboards<br>
+mkdir -p loki<br>
+mkdir -p alloy<br>
+mkdir -p nomad<br>
+mkdir -p consul<br>
+mkdir -p vault<br>
+mkdir -p alertmanager<br>
 mkdir -p docs
 
 find . -maxdepth 3 -type d
 
 Step 3 — Create initial files
 
-touch docker-compose.yml
-touch prometheus/prometheus.yml
-touch prometheus/alerts.yml
-touch alertmanager/alertmanager.yml
-touch loki/loki.yml
-touch alloy/config.alloy
-touch grafana/provisioning/datasources/datasources.yml
-touch grafana/provisioning/dashboards/dashboards.yml
-touch docs/README.md
+touch docker-compose.yml<br>
+touch prometheus/prometheus.yml<br>
+touch prometheus/alerts.yml<br>
+touch alertmanager/alertmanager.yml<br>
+touch loki/loki.yml<br>
+touch alloy/config.alloy<br>
+touch grafana/provisioning/datasources/datasources.yml<br>
+touch grafana/provisioning/dashboards/dashboards.yml<br>
+touch docs/README.md<br>
 touch docs/metrics-research.md
 
 PHASE 2 — Monitoring stack
@@ -327,6 +327,7 @@ alloy/config.alloy
 
 
 Step 10 — Grafana datasource configuration
+
 grafana/provisioning/datasources/datasources.yml
 
 Step 11 — Grafana dashboard provisioning
@@ -377,8 +378,7 @@ Step 16 — Research Nomad metrics
 
 curl "http://localhost:4646/v1/metrics?format=prometheus"
 
-curl "http://localhost:4646/v1/metrics?format=prometheus" \
-  > docs/nomad-metrics.txt
+curl "http://localhost:4646/v1/metrics?format=prometheus" > docs/nomad-metrics.txt
 
   grep -E "^# HELP|^nomad_" docs/nomad-metrics.txt | head -100
 
@@ -386,6 +386,5 @@ curl "http://localhost:4646/v1/metrics?format=prometheus" \
 
   curl "http://localhost:8500/v1/agent/metrics?format=prometheus"
 
-  curl "http://localhost:8500/v1/agent/metrics?format=prometheus" \
-  > docs/consul-metrics.txt
+  curl "http://localhost:8500/v1/agent/metrics?format=prometheus" > docs/consul-metrics.txt
 
