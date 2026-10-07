@@ -1,0 +1,64 @@
+groups:
+
+  - name: node-alerts
+    rules:
+
+      - alert: NodeExporterDown
+        expr: up{job="node-exporter"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node exporter is down"
+          description: "Node exporter has been unavailable for more than 1 minute."
+
+      - alert: HighCPUUsage
+        expr: |
+          100 * (
+            1 - avg by(instance) (
+              rate(node_cpu_seconds_total{job="node-exporter",mode="idle"}[5m])
+            )
+          ) > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is above 80% for more than 5 minutes."
+
+      - alert: HighMemoryUsage
+        expr: |
+          (
+            1 -
+            node_memory_MemAvailable_bytes{job="node-exporter"}
+            /
+            node_memory_MemTotal_bytes{job="node-exporter"}
+          ) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage"
+          description: "Memory usage is above 80% for more than 5 minutes."
+
+      - alert: HighDiskUsage
+        expr: |
+          (
+            1 -
+            node_filesystem_avail_bytes{
+              job="node-exporter",
+              fstype!~"tmpfs|overlay"
+            }
+            /
+            node_filesystem_size_bytes{
+              job="node-exporter",
+              fstype!~"tmpfs|overlay"
+            }
+          ) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High disk usage"
+          description: "Disk usage is above 80%."
+          
