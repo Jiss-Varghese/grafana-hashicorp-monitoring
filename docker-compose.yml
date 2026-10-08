@@ -11,13 +11,14 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     restart: unless-stopped
+
   consul:
     image: hashicorp/consul:latest
     container_name: grafana-hashicorp-consul
     ports:
       - "8700:8500"
     volumes:
-      - ./consul/consul.hcl:/consul/config/consul.hcl:ro  
+      - ./consul/consul.hcl:/consul/config/consul.hcl:ro
     command:
       - "agent"
       - "-server"
@@ -27,6 +28,7 @@ services:
       - "-bind=0.0.0.0"
       - "-log-level=INFO"
     restart: unless-stopped
+
   vault:
     image: hashicorp/vault:latest
     container_name: grafana-hashicorp-vault
@@ -41,9 +43,8 @@ services:
       - "server"
       - "-dev"
       - "-dev-root-token-id=root"
-      - "-dev-listen-address=0.0.0.0:8200"  
+      - "-dev-listen-address=0.0.0.0:8200"
     restart: unless-stopped
-
 
   node-exporter:
     image: prom/node-exporter:v1.9.1
@@ -99,24 +100,93 @@ services:
       - "--config.file=/etc/alertmanager/alertmanager.yml"
     restart: unless-stopped
 
-  nomad:
-    image: hashicorp/nomad:latest
-    container_name: grafana-hashicorp-nomad
+  nomad-server-1:
+    image: hashicorp/nomad:2.0.7
+    container_name: grafana-hashicorp-nomad-server-1
     ports:
       - "4646:4646"
       - "4647:4647"
       - "4648:4648"
     volumes:
-      - ./nomad/nomad.hcl:/etc/nomad.d/nomad.hcl:ro
+      - ./nomad/cluster/server1.hcl:/etc/nomad.d/nomad.hcl:ro
     command:
       - "agent"
       - "-config=/etc/nomad.d/nomad.hcl"
-      - "-server"
-      - "-bootstrap-expect=1"
-      - "-bind=0.0.0.0"
       - "-log-level=INFO"
+    networks:
+      default:
+      nomad-cluster:
+        ipv4_address: 172.30.0.11
+    restart: unless-stopped
+
+  nomad-server-2:
+    image: hashicorp/nomad:2.0.7
+    container_name: grafana-hashicorp-nomad-server-2
+    volumes:
+      - ./nomad/cluster/server2.hcl:/etc/nomad.d/nomad.hcl:ro
+    command:
+      - "agent"
+      - "-config=/etc/nomad.d/nomad.hcl"
+      - "-log-level=INFO"
+    networks:
+      default:
+      nomad-cluster:
+        ipv4_address: 172.30.0.12
+    restart: unless-stopped
+
+  nomad-server-3:
+    image: hashicorp/nomad:2.0.7
+    container_name: grafana-hashicorp-nomad-server-3
+    volumes:
+      - ./nomad/cluster/server3.hcl:/etc/nomad.d/nomad.hcl:ro
+    command:
+      - "agent"
+      - "-config=/etc/nomad.d/nomad.hcl"
+      - "-log-level=INFO"
+    networks:
+      default:
+      nomad-cluster:
+        ipv4_address: 172.30.0.13
+    restart: unless-stopped
+
+  nomad-client-1:
+    image: hashicorp/nomad:2.0.7
+    container_name: grafana-hashicorp-nomad-client-1
+    privileged: true
+    cgroup: host
+    volumes:
+      - ./nomad/cluster/client1.hcl:/etc/nomad.d/nomad.hcl:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - "agent"
+      - "-config=/etc/nomad.d/nomad.hcl"
+      - "-log-level=INFO"
+    networks:
+      - default
+      - nomad-cluster
+    restart: unless-stopped
+
+  nomad-client-2:
+    image: hashicorp/nomad:2.0.7
+    container_name: grafana-hashicorp-nomad-client-2
+    privileged: true
+    cgroup: host
+    volumes:
+      - ./nomad/cluster/client2.hcl:/etc/nomad.d/nomad.hcl:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - "agent"
+      - "-config=/etc/nomad.d/nomad.hcl"
+      - "-log-level=INFO"
+    networks:
+      - default
+      - nomad-cluster
     restart: unless-stopped
 
 volumes:
   grafana-data:
   vault-data:
+
+networks:
+  nomad-cluster:
+    external: true

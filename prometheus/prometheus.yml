@@ -31,7 +31,11 @@ scrape_configs:
         - prometheus
     static_configs:
       - targets:
-          - nomad:4646
+          - nomad-server-1:4646
+          - nomad-server-2:4646
+          - nomad-server-3:4646
+          - nomad-client-1:4646
+          - nomad-client-2:4646
         labels:
           environment: lab
           service: nomad
