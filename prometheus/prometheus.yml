@@ -1,6 +1,11 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093
 
 rule_files:
   - /etc/prometheus/alerts.yml
@@ -40,17 +45,37 @@ scrape_configs:
           environment: lab
           service: nomad
 
-  - job_name: consul
-    metrics_path: /v1/agent/metrics
+  - job_name: "consul-server-1"
+    metrics_path: "/v1/agent/metrics"
     params:
-      format:
-        - prometheus
+      format: ["prometheus"]
     static_configs:
-      - targets:
-          - consul:8500
+      - targets: ["consul:8500"]
         labels:
-          environment: lab
-          service: consul
+          environment: "lab"
+          service: "consul"
+          node: "consul-server-1"
+  - job_name: "consul-server-2"
+    metrics_path: "/v1/agent/metrics"
+    params:
+      format: ["prometheus"]
+    static_configs:
+      - targets: ["consul2:8500"]
+        labels:
+          environment: "lab"
+          service: "consul"
+          node: "consul-server-2"
+
+  - job_name: "consul-server-3"
+    metrics_path: "/v1/agent/metrics"
+    params:
+      format: ["prometheus"]
+    static_configs:
+      - targets: ["consul3:8500"]
+        labels:
+          environment: "lab"
+          service: "consul"
+          node: "consul-server-3"
 
   - job_name: vault
     metrics_path: /v1/sys/metrics

@@ -12,34 +12,34 @@ consul_3d1c5fc6cd5e_members_clients{datacenter="dc1"} 0
 consul_3d1c5fc6cd5e_members_servers{datacenter="dc1"} 1
 # HELP consul_3d1c5fc6cd5e_raft_applied_index consul_3d1c5fc6cd5e_raft_applied_index
 # TYPE consul_3d1c5fc6cd5e_raft_applied_index gauge
-consul_3d1c5fc6cd5e_raft_applied_index 98
+consul_3d1c5fc6cd5e_raft_applied_index 4939
 # HELP consul_3d1c5fc6cd5e_raft_last_index consul_3d1c5fc6cd5e_raft_last_index
 # TYPE consul_3d1c5fc6cd5e_raft_last_index gauge
-consul_3d1c5fc6cd5e_raft_last_index 98
+consul_3d1c5fc6cd5e_raft_last_index 4939
 # HELP consul_3d1c5fc6cd5e_runtime_alloc_bytes consul_3d1c5fc6cd5e_runtime_alloc_bytes
 # TYPE consul_3d1c5fc6cd5e_runtime_alloc_bytes gauge
-consul_3d1c5fc6cd5e_runtime_alloc_bytes 2.3175304e+07
+consul_3d1c5fc6cd5e_runtime_alloc_bytes 2.006776e+07
 # HELP consul_3d1c5fc6cd5e_runtime_free_count consul_3d1c5fc6cd5e_runtime_free_count
 # TYPE consul_3d1c5fc6cd5e_runtime_free_count gauge
-consul_3d1c5fc6cd5e_runtime_free_count 559231
+consul_3d1c5fc6cd5e_runtime_free_count 5.3573776e+07
 # HELP consul_3d1c5fc6cd5e_runtime_heap_objects consul_3d1c5fc6cd5e_runtime_heap_objects
 # TYPE consul_3d1c5fc6cd5e_runtime_heap_objects gauge
-consul_3d1c5fc6cd5e_runtime_heap_objects 96041
+consul_3d1c5fc6cd5e_runtime_heap_objects 70517
 # HELP consul_3d1c5fc6cd5e_runtime_malloc_count consul_3d1c5fc6cd5e_runtime_malloc_count
 # TYPE consul_3d1c5fc6cd5e_runtime_malloc_count gauge
-consul_3d1c5fc6cd5e_runtime_malloc_count 655272
+consul_3d1c5fc6cd5e_runtime_malloc_count 5.3644292e+07
 # HELP consul_3d1c5fc6cd5e_runtime_num_goroutines consul_3d1c5fc6cd5e_runtime_num_goroutines
 # TYPE consul_3d1c5fc6cd5e_runtime_num_goroutines gauge
-consul_3d1c5fc6cd5e_runtime_num_goroutines 189
+consul_3d1c5fc6cd5e_runtime_num_goroutines 183
 # HELP consul_3d1c5fc6cd5e_runtime_sys_bytes consul_3d1c5fc6cd5e_runtime_sys_bytes
 # TYPE consul_3d1c5fc6cd5e_runtime_sys_bytes gauge
-consul_3d1c5fc6cd5e_runtime_sys_bytes 4.9436936e+07
+consul_3d1c5fc6cd5e_runtime_sys_bytes 5.0223368e+07
 # HELP consul_3d1c5fc6cd5e_runtime_total_gc_pause_ns consul_3d1c5fc6cd5e_runtime_total_gc_pause_ns
 # TYPE consul_3d1c5fc6cd5e_runtime_total_gc_pause_ns gauge
-consul_3d1c5fc6cd5e_runtime_total_gc_pause_ns 1.170029e+07
+consul_3d1c5fc6cd5e_runtime_total_gc_pause_ns 1.729716736e+09
 # HELP consul_3d1c5fc6cd5e_runtime_total_gc_runs consul_3d1c5fc6cd5e_runtime_total_gc_runs
 # TYPE consul_3d1c5fc6cd5e_runtime_total_gc_runs gauge
-consul_3d1c5fc6cd5e_runtime_total_gc_runs 10
+consul_3d1c5fc6cd5e_runtime_total_gc_runs 529
 # HELP consul_3d1c5fc6cd5e_server_isLeader consul_3d1c5fc6cd5e_server_isLeader
 # TYPE consul_3d1c5fc6cd5e_server_isLeader gauge
 consul_3d1c5fc6cd5e_server_isLeader 1
@@ -226,11 +226,11 @@ consul_api_http{quantile="0.9"} NaN
 consul_api_http{quantile="0.99"} NaN
 consul_api_http_sum 0
 consul_api_http_count 0
-consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.5"} NaN
-consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.9"} NaN
-consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.99"} NaN
-consul_api_http_sum{method="GET",path="v1_agent_metrics"} 412.72987484931946
-consul_api_http_count{method="GET",path="v1_agent_metrics"} 39
+consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.5"} 8.433917045593262
+consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.9"} 8.433917045593262
+consul_api_http{method="GET",path="v1_agent_metrics",quantile="0.99"} 8.433917045593262
+consul_api_http_sum{method="GET",path="v1_agent_metrics"} 46583.55073738098
+consul_api_http_count{method="GET",path="v1_agent_metrics"} 4189
 # HELP consul_autopilot_failure_tolerance Tracks the number of voting servers that the cluster can lose while continuing to function.
 # TYPE consul_autopilot_failure_tolerance gauge
 consul_autopilot_failure_tolerance 0
@@ -349,7 +349,7 @@ consul_client_api_success_catalog_service_nodes 0
 consul_client_api_success_catalog_services 0
 # HELP consul_client_rpc Increments whenever a Consul agent makes an RPC request to a Consul server.
 # TYPE consul_client_rpc counter
-consul_client_rpc 45
+consul_client_rpc 4307
 # HELP consul_client_rpc_error_catalog_datacenters Increments whenever a Consul agent receives an RPC error for a request to list datacenters.
 # TYPE consul_client_rpc_error_catalog_datacenters counter
 consul_client_rpc_error_catalog_datacenters 0
@@ -511,11 +511,11 @@ consul_fsm_ca_leaf_sum 0
 consul_fsm_ca_leaf_count 0
 # HELP consul_fsm_coordinate_batch_update Measures the time it takes to apply the given batch coordinate update to the FSM.
 # TYPE consul_fsm_coordinate_batch_update summary
-consul_fsm_coordinate_batch_update{quantile="0.5"} NaN
-consul_fsm_coordinate_batch_update{quantile="0.9"} NaN
-consul_fsm_coordinate_batch_update{quantile="0.99"} NaN
-consul_fsm_coordinate_batch_update_sum 13.905752054415643
-consul_fsm_coordinate_batch_update_count 43
+consul_fsm_coordinate_batch_update{quantile="0.5"} 0.36604198813438416
+consul_fsm_coordinate_batch_update{quantile="0.9"} 0.36604198813438416
+consul_fsm_coordinate_batch_update{quantile="0.99"} 0.36604198813438416
+consul_fsm_coordinate_batch_update_sum 1621.3057188382372
+consul_fsm_coordinate_batch_update_count 2807
 # HELP consul_fsm_deregister Measures the time it takes to apply a catalog deregister operation to the FSM.
 # TYPE consul_fsm_deregister summary
 consul_fsm_deregister{quantile="0.5"} NaN
@@ -636,29 +636,29 @@ consul_kvs_apply_count 0
 consul_leader_barrier{quantile="0.5"} NaN
 consul_leader_barrier{quantile="0.9"} NaN
 consul_leader_barrier{quantile="0.99"} NaN
-consul_leader_barrier_sum 35.72254300117493
-consul_leader_barrier_count 10
+consul_leader_barrier_sum 4282.871237277985
+consul_leader_barrier_count 1048
 # HELP consul_leader_reapTombstones Measures the time spent clearing tombstones.
 # TYPE consul_leader_reapTombstones summary
 consul_leader_reapTombstones{quantile="0.5"} NaN
 consul_leader_reapTombstones{quantile="0.9"} NaN
 consul_leader_reapTombstones{quantile="0.99"} NaN
-consul_leader_reapTombstones_sum 0
-consul_leader_reapTombstones_count 0
+consul_leader_reapTombstones_sum 3.5683329105377197
+consul_leader_reapTombstones_count 1
 # HELP consul_leader_reconcile Measures the time spent updating the raft store from the serf member information.
 # TYPE consul_leader_reconcile summary
 consul_leader_reconcile{quantile="0.5"} NaN
 consul_leader_reconcile{quantile="0.9"} NaN
 consul_leader_reconcile{quantile="0.99"} NaN
-consul_leader_reconcile_sum 7.8473750948905945
-consul_leader_reconcile_count 10
+consul_leader_reconcile_sum 1067.1881291344762
+consul_leader_reconcile_count 1048
 # HELP consul_leader_reconcileMember Measures the time spent updating the raft store for a single serf member's information.
 # TYPE consul_leader_reconcileMember summary
 consul_leader_reconcileMember{quantile="0.5"} NaN
 consul_leader_reconcileMember{quantile="0.9"} NaN
 consul_leader_reconcileMember{quantile="0.99"} NaN
-consul_leader_reconcileMember_sum 6.89324988424778
-consul_leader_reconcileMember_count 10
+consul_leader_reconcileMember_sum 847.0083313286304
+consul_leader_reconcileMember_count 1048
 # HELP consul_leader_replication_acl_policies_index Tracks the index of ACL policies in the primary that the secondary has successfully replicated
 # TYPE consul_leader_replication_acl_policies_index gauge
 consul_leader_replication_acl_policies_index 0
@@ -831,8 +831,8 @@ consul_rpc_accept_conn 2
 consul_rpc_consistentRead{quantile="0.5"} NaN
 consul_rpc_consistentRead{quantile="0.9"} NaN
 consul_rpc_consistentRead{quantile="0.99"} NaN
-consul_rpc_consistentRead_sum 438.6580503024161
-consul_rpc_consistentRead_count 3
+consul_rpc_consistentRead_sum 454.52747130487114
+consul_rpc_consistentRead_count 201
 # HELP consul_rpc_cross_dc Increments when a server sends a (potentially blocking) cross datacenter RPC query.
 # TYPE consul_rpc_cross_dc counter
 consul_rpc_cross_dc 0
@@ -841,7 +841,7 @@ consul_rpc_cross_dc 0
 consul_rpc_queries_blocking 0
 # HELP consul_rpc_query Increments when a server receives a read request, indicating the rate of new read queries.
 # TYPE consul_rpc_query counter
-consul_rpc_query 19
+consul_rpc_query 1715
 # HELP consul_rpc_raft_handoff Increments when a server accepts a Raft-related RPC connection.
 # TYPE consul_rpc_raft_handoff counter
 consul_rpc_raft_handoff 0
@@ -853,10 +853,17 @@ consul_rpc_rate_limit_exceeded 0
 consul_rpc_rate_limit_log_dropped 0
 # HELP consul_rpc_request Increments when a server receives a Consul-related RPC request.
 # TYPE consul_rpc_request counter
-consul_rpc_request 290
+consul_rpc_request 31847
 # HELP consul_rpc_request_error Increments when a server returns an error from an RPC request.
 # TYPE consul_rpc_request_error counter
 consul_rpc_request_error 1
+# HELP consul_runtime_gc_pause_ns consul_runtime_gc_pause_ns
+# TYPE consul_runtime_gc_pause_ns summary
+consul_runtime_gc_pause_ns{quantile="0.5"} NaN
+consul_runtime_gc_pause_ns{quantile="0.9"} NaN
+consul_runtime_gc_pause_ns{quantile="0.99"} NaN
+consul_runtime_gc_pause_ns_sum 2.075125e+06
+consul_runtime_gc_pause_ns_count 1
 # HELP consul_server_isLeader Tracks if the server is a leader.
 # TYPE consul_server_isLeader gauge
 consul_server_isLeader 0
@@ -959,13 +966,13 @@ consul_xds_server_streams 0
 consul_xds_server_streamsUnauthenticated 0
 # HELP go_gc_duration_seconds A summary of the wall-time pause (stop-the-world) duration in garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
-go_gc_duration_seconds{quantile="0"} 8.725e-05
-go_gc_duration_seconds{quantile="0.25"} 0.000155667
-go_gc_duration_seconds{quantile="0.5"} 0.001385374
-go_gc_duration_seconds{quantile="0.75"} 0.002240083
-go_gc_duration_seconds{quantile="1"} 0.002703542
-go_gc_duration_seconds_sum 0.01170029
-go_gc_duration_seconds_count 10
+go_gc_duration_seconds{quantile="0"} 0.000976375
+go_gc_duration_seconds{quantile="0.25"} 0.002121791
+go_gc_duration_seconds{quantile="0.5"} 0.0028235
+go_gc_duration_seconds{quantile="0.75"} 0.003758125
+go_gc_duration_seconds{quantile="1"} 0.02744175
+go_gc_duration_seconds_sum 1.7297167469999999
+go_gc_duration_seconds_count 529
 # HELP go_gc_gogc_percent Heap size target percentage configured by the user, otherwise 100. This value is set by the GOGC environment variable, and the runtime/debug.SetGCPercent function. Sourced from /gc/gogc:percent.
 # TYPE go_gc_gogc_percent gauge
 go_gc_gogc_percent 100
@@ -974,49 +981,49 @@ go_gc_gogc_percent 100
 go_gc_gomemlimit_bytes 9.223372036854776e+18
 # HELP go_goroutines Number of goroutines that currently exist.
 # TYPE go_goroutines gauge
-go_goroutines 195
+go_goroutines 188
 # HELP go_info Information about the Go environment.
 # TYPE go_info gauge
 go_info{version="go1.26.7"} 1
 # HELP go_memstats_alloc_bytes Number of bytes allocated in heap and currently in use. Equals to /memory/classes/heap/objects:bytes.
 # TYPE go_memstats_alloc_bytes gauge
-go_memstats_alloc_bytes 2.3193768e+07
+go_memstats_alloc_bytes 2.0089392e+07
 # HELP go_memstats_alloc_bytes_total Total number of bytes allocated in heap until now, even if released already. Equals to /gc/heap/allocs:bytes.
 # TYPE go_memstats_alloc_bytes_total counter
-go_memstats_alloc_bytes_total 7.3847152e+07
+go_memstats_alloc_bytes_total 4.376640824e+09
 # HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table. Equals to /memory/classes/profiling/buckets:bytes.
 # TYPE go_memstats_buck_hash_sys_bytes gauge
-go_memstats_buck_hash_sys_bytes 1.490243e+06
+go_memstats_buck_hash_sys_bytes 1.800075e+06
 # HELP go_memstats_frees_total Total number of heap objects frees. Equals to /gc/heap/frees:objects + /gc/heap/tiny/allocs:objects.
 # TYPE go_memstats_frees_total counter
-go_memstats_frees_total 559231
+go_memstats_frees_total 5.3573775e+07
 # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata. Equals to /memory/classes/metadata/other:bytes.
 # TYPE go_memstats_gc_sys_bytes gauge
-go_memstats_gc_sys_bytes 4.385008e+06
+go_memstats_gc_sys_bytes 4.387056e+06
 # HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and currently in use, same as go_memstats_alloc_bytes. Equals to /memory/classes/heap/objects:bytes.
 # TYPE go_memstats_heap_alloc_bytes gauge
-go_memstats_heap_alloc_bytes 2.3193768e+07
+go_memstats_heap_alloc_bytes 2.0089392e+07
 # HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used. Equals to /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.
 # TYPE go_memstats_heap_idle_bytes gauge
-go_memstats_heap_idle_bytes 1.3787136e+07
+go_memstats_heap_idle_bytes 1.4901248e+07
 # HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes
 # TYPE go_memstats_heap_inuse_bytes gauge
-go_memstats_heap_inuse_bytes 2.6288128e+07
+go_memstats_heap_inuse_bytes 2.5174016e+07
 # HELP go_memstats_heap_objects Number of currently allocated objects. Equals to /gc/heap/objects:objects.
 # TYPE go_memstats_heap_objects gauge
-go_memstats_heap_objects 96079
+go_memstats_heap_objects 70520
 # HELP go_memstats_heap_released_bytes Number of heap bytes released to OS. Equals to /memory/classes/heap/released:bytes.
 # TYPE go_memstats_heap_released_bytes gauge
-go_memstats_heap_released_bytes 1.0371072e+07
+go_memstats_heap_released_bytes 8.978432e+06
 # HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes + /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.
 # TYPE go_memstats_heap_sys_bytes gauge
 go_memstats_heap_sys_bytes 4.0075264e+07
 # HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
 # TYPE go_memstats_last_gc_time_seconds gauge
-go_memstats_last_gc_time_seconds 1.7913525762457488e+09
+go_memstats_last_gc_time_seconds 1.7915478324022546e+09
 # HELP go_memstats_mallocs_total Total number of heap objects allocated, both live and gc-ed. Semantically a counter version for go_memstats_heap_objects gauge. Equals to /gc/heap/allocs:objects + /gc/heap/tiny/allocs:objects.
 # TYPE go_memstats_mallocs_total counter
-go_memstats_mallocs_total 655310
+go_memstats_mallocs_total 5.3644295e+07
 # HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures. Equals to /memory/classes/metadata/mcache/inuse:bytes.
 # TYPE go_memstats_mcache_inuse_bytes gauge
 go_memstats_mcache_inuse_bytes 18368
@@ -1025,16 +1032,16 @@ go_memstats_mcache_inuse_bytes 18368
 go_memstats_mcache_sys_bytes 32144
 # HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures. Equals to /memory/classes/metadata/mspan/inuse:bytes.
 # TYPE go_memstats_mspan_inuse_bytes gauge
-go_memstats_mspan_inuse_bytes 363840
+go_memstats_mspan_inuse_bytes 380480
 # HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system. Equals to /memory/classes/metadata/mspan/inuse:bytes + /memory/classes/metadata/mspan/free:bytes.
 # TYPE go_memstats_mspan_sys_bytes gauge
-go_memstats_mspan_sys_bytes 408000
+go_memstats_mspan_sys_bytes 424320
 # HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place. Equals to /gc/heap/goal:bytes.
 # TYPE go_memstats_next_gc_bytes gauge
-go_memstats_next_gc_bytes 3.531745e+07
+go_memstats_next_gc_bytes 3.7880634e+07
 # HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations. Equals to /memory/classes/other:bytes.
 # TYPE go_memstats_other_sys_bytes gauge
-go_memstats_other_sys_bytes 1.178501e+06
+go_memstats_other_sys_bytes 1.636733e+06
 # HELP go_memstats_stack_inuse_bytes Number of bytes obtained from system for stack allocator in non-CGO environments. Equals to /memory/classes/heap/stacks:bytes.
 # TYPE go_memstats_stack_inuse_bytes gauge
 go_memstats_stack_inuse_bytes 1.867776e+06
@@ -1043,7 +1050,7 @@ go_memstats_stack_inuse_bytes 1.867776e+06
 go_memstats_stack_sys_bytes 1.867776e+06
 # HELP go_memstats_sys_bytes Number of bytes obtained from system. Equals to /memory/classes/total:byte.
 # TYPE go_memstats_sys_bytes gauge
-go_memstats_sys_bytes 4.9436936e+07
+go_memstats_sys_bytes 5.0223368e+07
 # HELP go_sched_gomaxprocs_threads The current runtime.GOMAXPROCS setting, or the number of operating system threads that can execute user-level Go code simultaneously. Sourced from /sched/gomaxprocs:threads.
 # TYPE go_sched_gomaxprocs_threads gauge
 go_sched_gomaxprocs_threads 8
@@ -1052,28 +1059,28 @@ go_sched_gomaxprocs_threads 8
 go_threads 14
 # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 5.85
+process_cpu_seconds_total 628.13
 # HELP process_max_fds Maximum number of open file descriptors.
 # TYPE process_max_fds gauge
 process_max_fds 1.048576e+06
 # HELP process_network_receive_bytes_total Number of bytes received by the process over the network.
 # TYPE process_network_receive_bytes_total counter
-process_network_receive_bytes_total 191161
+process_network_receive_bytes_total 1.9226973e+07
 # HELP process_network_transmit_bytes_total Number of bytes sent by the process over the network.
 # TYPE process_network_transmit_bytes_total counter
-process_network_transmit_bytes_total 644697
+process_network_transmit_bytes_total 6.1388358e+07
 # HELP process_open_fds Number of open file descriptors.
 # TYPE process_open_fds gauge
-process_open_fds 26
+process_open_fds 24
 # HELP process_resident_memory_bytes Resident memory size in bytes.
 # TYPE process_resident_memory_bytes gauge
-process_resident_memory_bytes 1.16785152e+08
+process_resident_memory_bytes 6.8804608e+07
 # HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
 # TYPE process_start_time_seconds gauge
-process_start_time_seconds 1.79135207173e+09
+process_start_time_seconds 1.79148501173e+09
 # HELP process_virtual_memory_bytes Virtual memory size in bytes.
 # TYPE process_virtual_memory_bytes gauge
-process_virtual_memory_bytes 1.419739136e+09
+process_virtual_memory_bytes 1.420525568e+09
 # HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
 # TYPE process_virtual_memory_max_bytes gauge
 process_virtual_memory_max_bytes 1.8446744073709552e+19

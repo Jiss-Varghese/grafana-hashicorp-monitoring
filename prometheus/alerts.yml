@@ -61,4 +61,49 @@ groups:
         annotations:
           summary: "High disk usage"
           description: "Disk usage is above 80%."
-          
+
+
+   
+  - name: nomad-alerts
+    rules:
+      - alert: NomadTargetDown
+        expr: up{job="nomad"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Nomad target is down"
+          description: "Nomad target {{ $labels.instance }} has been unavailable for more than 1 minute."
+      - alert: NomadAllocationFailuresIncreasing
+        expr: delta(nomad_nomad_job_summary_failed[5m]) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Nomad allocation failures increased"
+          description: "Failed allocations for job {{ $labels.exported_job }} increased during the last 5 minutes."
+  - name: consul-alerts
+    rules:
+      - alert: ConsulTargetDown
+        expr: up{job="consul"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Consul target is down"
+          description: "Consul target {{ $labels.instance }} has been unavailable for more than 1 minute."
+
+  - name: vault-alerts
+    rules:
+      - alert: VaultTargetDown
+        expr: up{job="vault"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Vault target is down"
+          description: "Vault target {{ $labels.instance }} has been unavailable for more than 1 minute."       
+
+
+  
+ 

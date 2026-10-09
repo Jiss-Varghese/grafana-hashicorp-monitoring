@@ -26,9 +26,49 @@ services:
       - "-ui"
       - "-client=0.0.0.0"
       - "-bind=0.0.0.0"
+      - "-retry-join=consul2"
+      - "-retry-join=consul3"
+      - "-log-level=INFO"
+    restart: unless-stopped
+  consul2:
+    image: hashicorp/consul:latest
+    container_name: grafana-hashicorp-consul2
+    ports:
+      - "8701:8500"
+    volumes:
+      - ./consul/consul.hcl:/consul/config/consul.hcl:ro
+    command:
+      - "agent"
+      - "-server"
+      - "-bootstrap-expect=3"
+      - "-node=consul-server-2"
+      - "-ui"
+      - "-client=0.0.0.0"
+      - "-bind=0.0.0.0"
+      - "-retry-join=consul"
+      - "-retry-join=consul3"
       - "-log-level=INFO"
     restart: unless-stopped
 
+  consul3:
+    image: hashicorp/consul:latest
+    container_name: grafana-hashicorp-consul3
+    ports:
+      - "8702:8500"
+    volumes:
+      - ./consul/consul.hcl:/consul/config/consul.hcl:ro
+    command:
+      - "agent"
+      - "-server"
+      - "-bootstrap-expect=3"
+      - "-node=consul-server-3"
+      - "-ui"
+      - "-client=0.0.0.0"
+      - "-bind=0.0.0.0"
+      - "-retry-join=consul"
+      - "-retry-join=consul2"
+      - "-log-level=INFO"
+    restart: unless-stopped
   vault:
     image: hashicorp/vault:latest
     container_name: grafana-hashicorp-vault
